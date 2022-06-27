@@ -11,7 +11,7 @@ ver: 1
 
 Features:
 No more 60fps limit thus giving you more fps
-Discord Invite Disabled due to misunderstanding reasons
+Discord Invite Disabled due to misunderstanding reasons.
 ]]
 
 _G.fpscap = "500" -- Do NOT put it extremely high cause it will just crash your game.

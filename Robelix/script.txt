@@ -1,4 +1,4 @@
-setfpscap(1000)
+setfpscap(_G.fpscap)
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/Robelix/main/Robelix/src.txt"))()
 

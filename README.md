@@ -2,7 +2,7 @@
 An open source roblox client script made by Empire#4946.
 
 # Loadstring:
-```
+```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/Robelix/main/Robelix/script.txt"))()
 ```
 

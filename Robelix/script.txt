@@ -1,21 +1,4 @@
-local rhttp = game:GetService('HttpService')
-
-local req = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
-	if req then
-		req({
-			Url = 'http://127.0.0.1:6463/rpc?v=1',
-			Method = 'POST',
-			Headers = {
-				['Content-Type'] = 'application/json',
-				Origin = 'https://discord.com'
-			},
-			Body = rhttp:JSONEncode({
-				cmd = 'INVITE_BROWSER',
-				nonce = rhttp:GenerateGUID(false),
-				args = {code = 'dYHag43eeU'}
-			})
-		})
-	end
+setfpscap(1000)
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/Robelix/main/Robelix/src.txt"))()
 

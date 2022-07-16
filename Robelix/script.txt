@@ -1,11 +1,20 @@
-setfpscap(_G.fpscap)
-
+local chatSettings = require(game:GetService("Chat").ClientChatModules.ChatSettings)
+local chatFrame = game:GetService("Players").LocalPlayer.PlayerGui.Chat.Frame
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/Robelix/main/Robelix/src.txt"))()
+
+local Lighting = game:GetService("Lighting")
+local CoreGui = game:GetService("CoreGui")
+
+local CBloomE = Instance.new("BloomEffect") CBloomE.Parent = Lighting CBloomE.Name = "CBloomE" CBloomE.Enabled = false
+local CBlurE = Instance.new("BlurEffect") CBlurE.Parent = Lighting CBlurE.Name = "CBloomE" CBlurE.Enabled =	false
+local CColorCorrectionE = Instance.new("ColorCorrectionEffect") CColorCorrectionE.Parent = Lighting CColorCorrectionE.Name = "CColorCorrectionE" CColorCorrectionE.Enabled = false
+local CDepthOfFieldE = Instance.new("DepthOfFieldEffect") CDepthOfFieldE.Parent = Lighting CDepthOfFieldE.Name = "CDepthOfFieldE" CDepthOfFieldE.Enabled = false
+local CSunRaysE = Instance.new("SunRaysEffect") CSunRaysE.Parent = Lighting CSunRaysE.Name = "CSunRaysE" CSunRaysE.Enabled = false
 
 local gui = Library:create{
     Theme = Library.Themes.Dark,
     Name = "Robelix",
-    Link = "yes"
+    Link = "https://github.com/Empire4946/Robelix"
 }
 
 local tab = gui:tab{
@@ -18,6 +27,273 @@ local tab2 = gui:tab{
     Name = "NoMoreLag++"
 }
 
+
+tab:button({
+    Name = "------------------------------------ Chat Settings ------------------------------------",
+    Callback = function()
+    end
+})
+
+
+tab:Toggle{
+	Name = "Chat Resizable",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state)
+	chatSettings.WindowResizable = state
+end
+}
+
+tab:Toggle{
+	Name = "Chat Draggable",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state)
+chatSettings.WindowDraggable = state
+end
+}
+
+tab:Toggle{
+    Name = "Enable ChatFrame",
+    StartingState = true,
+    Description = nil,
+    Callback = function(state)
+        chatFrame.ChatChannelParentFrame.Visible = state
+        end
+}
+
+tab:button({
+    Name = "--------------------------------- Enhancer Settings ---------------------------------",
+    Callback = function()
+    end
+})
+
+tab:button({
+    Name = "Enhance Graphics (Built In)",
+    Callback = function()
+    local a=game.Lighting;for b,c in pairs(a:GetChildren())do c:Destroy()end;local d=workspace.Terrain;local e=Instance.new("ColorCorrectionEffect")local f=Instance.new("BloomEffect")local g=Instance.new("SunRaysEffect")local h=Instance.new("BlurEffect")e.Parent=a;f.Parent=a;g.Parent=a;h.Parent=a;local i={Terrain=true,ColorCorrection=true,Sun=true,Lighting=true,BloomEffect=true}e.Enabled=false;e.Contrast=0.15;e.Brightness=0.1;e.Saturation=0.25;e.TintColor=Color3.fromRGB(255,222,211)f.Enabled=false;f.Intensity=0.1;g.Enabled=false;g.Intensity=0.2;g.Spread=1;f.Enabled=false;f.Intensity=0.05;f.Size=32;f.Threshold=1;h.Enabled=false;h.Size=6;if i.ColorCorrection then e.Enabled=true end;if i.Sun then g.Enabled=true end;if i.Terrain then d.WaterColor=Color3.fromRGB(10,10,24)d.WaterWaveSize=0.15;d.WaterWaveSpeed=22;d.WaterTransparency=1;d.WaterReflectance=0.05 end;if i.Lighting then a.Ambient=Color3.fromRGB(0,0,0)a.Brightness=4;a.ColorShift_Bottom=Color3.fromRGB(0,0,0)a.ColorShift_Top=Color3.fromRGB(0,0,0)a.ExposureCompensation=0;a.FogColor=Color3.fromRGB(132,132,132)a.GlobalShadows=true;a.OutdoorAmbient=Color3.fromRGB(112,117,128)a.Outlines=false end
+            tab:prompt{
+            Title = "Enhanced!",
+            Text = "Enhanced your Graphics."
+        }
+    end,
+})
+
+tab:Slider{
+	Name = "Brightness",
+	Default = 0,
+	Min = 0,
+	Max = 10,
+	Callback = function(val) 
+	    Lighting.Brightness = val
+	end
+}
+
+tab:Slider{
+	Name = "Time (Clock)",
+	Default = 0,
+	Min = 0,
+	Max = 23.9,
+	Callback = function(val) 
+	    Lighting.ClockTime = val
+	end
+}
+
+tab:Slider{
+	Name = "Bloom Intensity",
+	Default = 1,
+	Min = 0,
+	Max = 1,
+	Callback = function(val) 
+	    CBloomE.Intensity = val
+	end
+}
+
+tab:Slider{
+	Name = "Bloom Size",
+	Default = 23,
+	Min = 0,
+	Max = 56,
+	Callback = function(val) 
+	    CBloomE.Size = val
+	end
+}
+
+tab:Slider{
+	Name = "Bloom Threshold",
+	Default = 2,
+	Min = 0.8,
+	Max = 4,
+	Callback = function(val) 
+	    CBloomE.Threshold = val
+	end
+}
+
+tab:Toggle{
+	Name = "Toggle Blur",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state)
+	if state == true then
+		CBlurE.Enabled = true
+	else
+		CBlurE.Enabled = false
+	end
+end
+}
+
+tab:Slider{
+	Name = "Blur Size",
+	Default = 23,
+	Min = 0,
+	Max = 56,
+	Callback = function(val) 
+	    CBlurE.Size = val
+	end
+}
+
+tab:Toggle{
+	Name = "Toggle ColorCorrection",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state)
+	if state == true then
+		CColorCorrectionE.Enabled = true
+	else
+		CColorCorrectionE.Enabled = false
+	end
+end
+}
+
+tab:Slider{
+	Name = "ColorCorrection Brightness",
+	Default = 0,
+	Min = -1,
+	Max = 1,
+	Callback = function(val) 
+	    CColorCorrectionE.Brightness = val
+	end
+}
+
+tab:Slider{
+	Name = "ColorCorrection Contrast",
+	Default = 0,
+	Min = -1,
+	Max = 1,
+	Callback = function(val) 
+	    CColorCorrectionE.Contrast = val
+	end
+}
+
+tab:Slider{
+	Name = "ColorCorrection Saturation",
+	Default = 0,
+	Min = -1,
+	Max = 1,
+	Callback = function(val) 
+	    CColorCorrectionE.Saturation = val
+	end
+}
+
+tab:Toggle{
+	Name = "Toggle DepthOfField",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state)
+	if state == true then
+		CDepthOfFieldE.Enabled = true
+	else
+		CDepthOfFieldE.Enabled = false
+	end
+end
+}
+
+tab:Slider{
+	Name = "DepthOfField FarIntensity",
+	Default = 0.75,
+	Min = 0,
+	Max = 1,
+	Callback = function(val) 
+	    CDepthOfFieldE.FarIntensity = val
+	end
+}
+
+tab:Slider{
+	Name = "DepthOfField NearIntensity",
+	Default = 0.75,
+	Min = 0,
+	Max = 1,
+	Callback = function(val) 
+	    CDepthOfFieldE.NearIntensity = val
+	end
+}
+
+tab:Slider{
+	Name = "DepthOfField InFocusRadius",
+	Default = 10,
+	Min = 0,
+	Max = 50,
+	Callback = function(val) 
+	    CDepthOfFieldE.InFocusRadius = val
+	end
+}
+
+tab:Slider{
+	Name = "DepthOfField FocusDistance",
+	Default = 10,
+	Min = 0,
+	Max = 50,
+	Callback = function(val) 
+	    CDepthOfFieldE.FocusDistance = val
+	end
+}
+
+tab:Toggle{
+	Name = "Toggle SunRays",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state)
+	if toggle == true then
+		CSunRaysE.Enabled = true
+	else
+		CSunRaysE.Enabled = false
+	end
+end
+}
+
+tab:Slider{
+	Name = "SunRays Intensity",
+	Default = 0.25,
+	Min = 0,
+	Max = 1,
+	Callback = function(val) 
+	    CSunRaysE.Intensity = val
+	end
+}
+
+tab:Slider{
+	Name = "SunRays Spread",
+	Default = 1,
+	Min = 0,
+	Max = 1,
+	Callback = function(val) 
+	    CSunRaysE.Spread = val
+	end
+}
+
+tab:button({
+    Name = "Redo Effects",
+    Callback = function()
+    end
+})
+
+
+tab:button({
+    Name = "---------------------------------- Camera Settings ----------------------------------",
+    Callback = function()
+    end
+})
+
 tab:button({
     Name = "FreeCam",
     Callback = function()
@@ -28,6 +304,56 @@ tab:button({
         }
     end,
 })
+
+tab:Slider{
+	Name = "CameraFOV",
+	Default = 70,
+	Min = 1,
+	Max = 500,
+	Callback = function(val) 
+	    game:GetService("Workspace"):FindFirstChild("Camera").FieldOfView = val
+	end
+}
+
+tab:Slider{
+	Name = "Camera MaxZoom",
+	Default = 400,
+	Min = 1,
+	Max = 500,
+	Callback = function(val) 
+	    game.Players.LocalPlayer.CameraMaxZoomDistance = val
+	end
+}
+
+tab:Slider{
+	Name = "Camera MinZoom",
+	Default = 0.5,
+	Min = 0.5,
+	Max = 10,
+	Callback = function(val) 
+	    game.Players.LocalPlayer.CameraMaxZoomDistance = val
+	end
+}
+
+tab:Toggle{
+	Name = "Fix MouseIcon",
+    StartingState = false,
+    Description = nil,
+	Callback = function(state) 
+	   game:GetService("UserInputService").MouseIconEnabled = state
+	end
+}
+
+
+tab2:Slider{
+	Name = "FPS Cap",
+	Default = 500,
+	Min = 1,
+	Max = 9999,
+	Callback = function(val) 
+	    setfpscap(val)
+	end
+}
 
 tab2:button({
     Name = "NoParticles",
@@ -196,16 +522,6 @@ sethiddenproperty(game.Lighting, "Technology", "Compatibility")
     end,
 })
 
-tab:button({
-    Name = "Enhance Graphics",
-    Callback = function()
-    local a=game.Lighting;for b,c in pairs(a:GetChildren())do c:Destroy()end;local d=workspace.Terrain;local e=Instance.new("ColorCorrectionEffect")local f=Instance.new("BloomEffect")local g=Instance.new("SunRaysEffect")local h=Instance.new("BlurEffect")e.Parent=a;f.Parent=a;g.Parent=a;h.Parent=a;local i={Terrain=true,ColorCorrection=true,Sun=true,Lighting=true,BloomEffect=true}e.Enabled=false;e.Contrast=0.15;e.Brightness=0.1;e.Saturation=0.25;e.TintColor=Color3.fromRGB(255,222,211)f.Enabled=false;f.Intensity=0.1;g.Enabled=false;g.Intensity=0.2;g.Spread=1;f.Enabled=false;f.Intensity=0.05;f.Size=32;f.Threshold=1;h.Enabled=false;h.Size=6;if i.ColorCorrection then e.Enabled=true end;if i.Sun then g.Enabled=true end;if i.Terrain then d.WaterColor=Color3.fromRGB(10,10,24)d.WaterWaveSize=0.15;d.WaterWaveSpeed=22;d.WaterTransparency=1;d.WaterReflectance=0.05 end;if i.Lighting then a.Ambient=Color3.fromRGB(0,0,0)a.Brightness=4;a.ColorShift_Bottom=Color3.fromRGB(0,0,0)a.ColorShift_Top=Color3.fromRGB(0,0,0)a.ExposureCompensation=0;a.FogColor=Color3.fromRGB(132,132,132)a.GlobalShadows=true;a.OutdoorAmbient=Color3.fromRGB(112,117,128)a.Outlines=false end
-            tab:prompt{
-            Title = "Enhanced!",
-            Text = ""
-        }
-    end,
-})
 
 gui:Credit{
 	Name = "Empire",

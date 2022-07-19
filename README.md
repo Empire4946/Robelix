@@ -1,4 +1,4 @@
-<h3 align="center"><img src="https://user-images.githubusercontent.com/104152235/179575041-32935b62-3695-40ec-8704-71e593a4467b.jpg" alt="Robelix"></h3>
+<h3 align="center"><img src="https://user-images.githubusercontent.com/104152235/179765820-b8e65051-75a7-4582-8c54-b57f4408a929.png" alt="Robelix"></h3>
 <h1 align="center">Robelix</h1>
 
 ## What is Robelix?

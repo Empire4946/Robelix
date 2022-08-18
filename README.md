@@ -15,7 +15,6 @@ Robelix is a lightweight client script with modules, Its purpose is to improve y
 - `Robelix offers a huge selection of customizations, optimizers without giving you advantage!`
 - [x] Doesn't Violate Roblox's TOS & Game's TOS
 - `Since Robelix doesn't give advantage, It completely follows the TOS of Roblox and the games in the front page.`
-![b73c78129472981a1ed31d962ad58d7223b79a26da39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd8070919e12a18cd7fd6e10dd5e407918a45d2](https://user-images.githubusercontent.com/104152235/185446934-a93e3ae8-b2df-43b3-8184-30d1fd018bdf.png)
 
 ## Installation (DISCONTINUED)
 Robelix doesn't have a "dll" version yet, soon it will tho.

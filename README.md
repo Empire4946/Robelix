@@ -1,6 +1,12 @@
 <h3 align="center"><img src="https://user-images.githubusercontent.com/104152235/185446955-c23ddd11-2e20-499a-82f6-30cbf788b070.png" alt="Discontinued"></h3>
 <h1 align="center">Robelix (DISCONTINUED)</h1>
 
+# Hello,
+- If you haven't already heard, Robelix is Discontinued.
+- I can't be bothered to work on 2 projects that take up my time (i also have school now meaning its extra hard)
+- The only project for now that I am working on is https://www.empify.xyz/ (Empify) 
+- Thanks, empire4946
+
 ## What is Robelix? (DISCONTINUED)
 Robelix is a lightweight client script with modules, Its purpose is to improve your gaming experience. (DISCONTINUED)
 
